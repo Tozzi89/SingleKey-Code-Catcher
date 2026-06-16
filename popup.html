@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SingleKey Code Catcher</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 380px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 16px;
+    }
+
+    h1 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #a0a8c0;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+
+    #status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 12px;
+    }
+
+    #status .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #555;
+      flex-shrink: 0;
+    }
+
+    #status.active .dot {
+      background: #4ade80;
+      box-shadow: 0 0 6px #4ade80;
+    }
+
+    #status.active {
+      color: #4ade80;
+    }
+
+    .code-box {
+      background: #0d1117;
+      border: 1px solid #2a2a4a;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+      word-break: break-all;
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 11.5px;
+      line-height: 1.6;
+      color: #7dd3fc;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+    }
+
+    .code-box.empty {
+      color: #444;
+      font-family: inherit;
+      font-size: 12px;
+      font-style: italic;
+      justify-content: center;
+    }
+
+    .timestamp {
+      font-size: 11px;
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    button {
+      flex: 1;
+      padding: 9px 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    #copyBtn {
+      background: #2563eb;
+      color: white;
+    }
+
+    #copyBtn:hover {
+      background: #1d4ed8;
+    }
+
+    #copyBtn:disabled {
+      background: #2a2a4a;
+      color: #555;
+      cursor: default;
+    }
+
+    #clearBtn {
+      background: #2a2a3a;
+      color: #888;
+    }
+
+    #clearBtn:hover {
+      background: #333355;
+      color: #aaa;
+    }
+
+    #clearBtn:disabled {
+      background: #1e1e2e;
+      color: #444;
+      cursor: default;
+    }
+
+    #copyFeedback {
+      font-size: 11px;
+      color: #4ade80;
+      text-align: center;
+      height: 16px;
+      margin-top: 8px;
+    }
+
+    .footer {
+      font-size: 10px;
+      color: #444;
+      margin-top: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔑 SingleKey Code Catcher</h1>
+
+  <div id="status">
+    <span class="dot"></span>
+    <span id="statusText">Väntar på login-redirect...</span>
+  </div>
+
+  <div id="codeBox" class="code-box empty">Ingen kod fångad ännu</div>
+  <div id="timestamp" class="timestamp"></div>
+
+  <div class="buttons">
+    <button id="copyBtn" disabled>Kopiera</button>
+    <button id="clearBtn" disabled>Rensa</button>
+  </div>
+
+  <div id="copyFeedback"></div>
+
+  <div class="footer">Lyssnar på: singlekey-id.com</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
