@@ -1,0 +1,12 @@
+{
+  "addons": {
+    "singlekey-code-catcher@tozzi89.github.com": {
+      "updates": [
+        {
+          "version": "1.0",
+          "update_link": "https://github.com/Tozzi89/SingleKey-Code-Catcher/releases/download/v1.0/singlekey-addon.xpi"
+        }
+      ]
+    }
+  }
+}
